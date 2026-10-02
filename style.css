@@ -63,7 +63,6 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 .button { display: inline-flex; align-items: center; gap: 26px; padding: 12px 23px; border-radius: 30px; color: white; background: #111; text-decoration: none; font-size: 13px; font-weight: 500; transition: transform .3s var(--ease), background .25s; }
 .button:hover { color: white; background: #333; transform: translateY(-2px); }
 .button:active { transform: scale(.98); }
-.text-link { font-size: 13px; }
 .hero-note { font-size: 11px; color: #888; margin: 28px 0 0; }
 .showcase { height: 565px; position: relative; display: flex; justify-content: center; overflow: hidden; padding-top: 42px; background: #f6f6f6; border-radius: 18px; }
 /* Flat front-facing iPad and iPhone with real captures; side buttons stay visible. */
@@ -108,13 +107,15 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 .faq summary::after { content: '+'; position: absolute; right: 2px; top: 21px; font-size: 22px; font-weight: 300; color: #777; transition: transform .24s var(--ease), color .24s; }
 .faq details[open]:not(.is-closing) summary::after { transform: rotate(45deg); color: #111; }
 .faq details p { font-size: 14px; color: #777; padding-right: 25px; margin: 0 0 24px; }
-.contact { padding: 45px 48px; border-radius: 16px; background: #f7f7f7; display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; margin-bottom: 76px; }
+/* Heading, message and actions share one grid so their edges line up. */
+.contact { padding: 45px 48px 40px; border-radius: 16px; background: #f7f7f7; display: grid; grid-template-columns: .8fr 1.2fr; gap: 0 48px; margin-bottom: 76px; }
 .contact .eyebrow { margin-bottom: 15px; }
-.contact h2 { margin-bottom: 15px; }
-.contact p { color: #777; font-size: 14px; }
-.contact-side { align-self: center; }
+.contact h2 { margin: 0; }
+.contact-body { padding-top: 34px; }
+.contact-body p { color: #777; font-size: 14px; margin: 0 0 6px; max-width: 560px; }
+.contact-actions { grid-column: 1 / -1; display: flex; align-items: center; flex-wrap: wrap; gap: 12px 22px; margin-top: 30px; padding-top: 26px; border-top: 1px solid #e6e6e6; }
 .email { overflow-wrap: anywhere; }
-.contact-side p { font-size: 12px; margin: 16px 0 0; }
+.contact-actions .email { font-size: 13px; color: #555; }
 .source { font-size: 12px; color: #777; max-width: 740px; margin-bottom: 65px; }
 .source strong { display: block; color: #333; font-weight: 550; margin-bottom: 8px; }
 .site-footer { border-top: 1px solid var(--line); padding: 28px 0 35px; }
@@ -182,7 +183,7 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 }
 @media (max-width: 900px) {
   .wrap { width: calc(100% - 48px); } .brand small { display: none; }
-  .support-layout { gap: 35px; } .contact { padding: 35px; gap: 25px; }
+  .support-layout { gap: 35px; } .contact { padding: 35px; column-gap: 32px; }
 }
 @media (max-width: 750px) {
   .header-tools { gap: 15px; } nav { gap: 16px; }
@@ -215,7 +216,7 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
   .section-heading h2, .support-intro h2, .contact h2 { font-size: 28px; } .section-heading > p { margin-top: 10px; }
   .features { grid-template-columns: 1fr; gap: 26px; } .feature { padding: 25px 0 4px; } .feature h3 { font-size: 22px; }
   .support-layout { grid-template-columns: 1fr; gap: 5px; } .support-intro h2 { margin-bottom: 12px; }
-  .contact { grid-template-columns: 1fr; padding: 27px; gap: 16px; margin-bottom: 42px; }
+  .contact { grid-template-columns: 1fr; padding: 27px; margin-bottom: 42px; } .contact-body { padding-top: 14px; } .contact-actions { margin-top: 20px; padding-top: 20px; }
   .source { margin-bottom: 40px; } .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
   .privacy-hero { padding: 47px 0 42px; grid-template-columns: 1fr; gap: 20px; }
   .privacy-hero h1 { font-size: clamp(46px, 12vw, 60px); } .privacy-hero .lead { font-size: 16px; }
