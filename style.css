@@ -136,18 +136,7 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 .sheet-front { animation: sheet-drift 8s ease-in-out infinite; }
 .figure-orbit { stroke: #ededed; stroke-width: 1; }
 .figure-motion { stroke: #8c8c8c; stroke-width: 1; stroke-linecap: round; stroke-dasharray: 24 185; animation: line-travel 9s linear infinite; }
-.privacy-layout { display: grid; grid-template-columns: 245px minmax(0, 1fr); gap: 75px; padding-bottom: 85px; }
-.toc { position: sticky; top: 30px; align-self: start; padding: 25px 21px; border: 1px solid #ededed; border-radius: 12px; }
-.toc-eyebrow { display: block; font-size: 8px; letter-spacing: .14em; color: #999; margin-bottom: 8px; }
-.toc strong { display: block; font-size: 14px; font-weight: 550; margin-bottom: 20px; }
-.toc a { display: block; font-size: 12px; text-decoration: none; color: #777; padding: 8px 10px; margin: 0 -10px 2px; border-radius: 6px; transition: background .25s, color .25s; }
-.toc a:hover, .toc a.is-active { background: #f6f6f6; color: #111; }
-.toc a.is-active { font-weight: 550; }
-.reading-status { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); color: #888; font-size: 10px; }
-.reading-status[hidden] { display: none; }
-.reading-status output { font-variant-numeric: tabular-nums; font-size: 11px; color: #444; }
-.reading-track { width: 100%; height: 2px; background: #efefef; overflow: hidden; }
-.reading-track > span { display: block; width: 100%; height: 100%; background: #444; transform: scaleX(0); transform-origin: left; transition: transform .2s linear; }
+.privacy-layout { max-width: 760px; padding-bottom: 85px; }
 .policy section { padding: 32px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 32px; }
 .policy section:last-child { border-bottom: 0; }
 .policy h2 { font-size: 22px; letter-spacing: -.035em; line-height: 1.5; margin-bottom: 18px; }
@@ -176,7 +165,7 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 @media (max-width: 1000px) {
   .header-tools { gap: 20px; } nav { gap: 20px; }
   .hero { gap: 35px; } .showcase { height: 490px; } .device-stage { --ipad: 260px; }
-  .privacy-hero { gap: 20px; } .privacy-layout { grid-template-columns: 215px minmax(0, 1fr); gap: 45px; }
+  .privacy-hero { gap: 20px; }
 }
 @media (max-width: 900px) {
   .wrap { width: calc(100% - 48px); } .brand small { display: none; }
@@ -185,10 +174,6 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 @media (max-width: 750px) {
   .header-tools { gap: 15px; } nav { gap: 16px; }
   .privacy-hero h1 { font-size: 48px; } .privacy-hero .lead { font-size: 15px; }
-  .privacy-layout { grid-template-columns: 1fr; gap: 30px; }
-  .toc { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 3px 18px; }
-  .toc-eyebrow, .toc strong, .reading-status { grid-column: 1 / -1; }
-  .toc strong { margin-bottom: 8px; } .reading-status { margin-top: 12px; padding-top: 14px; }
 }
 @media (max-width: 650px) {
   .wrap { width: calc(100% - 40px); }
@@ -218,7 +203,6 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
   .privacy-hero h1 { font-size: clamp(46px, 12vw, 60px); } .privacy-hero .lead { font-size: 16px; }
   .meta { margin-top: 25px; padding-top: 18px; font-size: 10px; }
   .privacy-figure { width: 100%; max-width: 310px; margin: 0 auto; }
-  .toc { padding: 23px 21px; gap: 3px 16px; } .toc a { font-size: 11px; line-height: 1.7; }
   .policy h2 { font-size: 21px; }
   .policy section { padding: 26px 0; } .policy section.card { padding: 25px; } .policy p { font-size: 14px; }
   .privacy-layout { padding-bottom: 50px; }
@@ -226,7 +210,7 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 @media (max-width: 360px) {
   .wrap { width: calc(100% - 32px); } .download-content h1 { font-size: 40px; }
   .download-description { font-size: 13px; } .header-tools > nav { font-size: 11px; }
-  .toc { grid-template-columns: 1fr; } .footer-links { flex-wrap: wrap; gap: 10px 18px; }
+  .footer-links { flex-wrap: wrap; gap: 10px 18px; }
 }
 .motion-paused *, .motion-paused *::before, .motion-paused *::after { animation: none !important; transition: none !important; }
 .motion-paused [data-reveal] { opacity: 1; transform: none; }

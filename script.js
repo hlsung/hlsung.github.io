@@ -70,49 +70,4 @@
       };
     });
   });
-
-  const policy = document.querySelector('.policy');
-  const policySections = Array.from(document.querySelectorAll('[data-policy-section]'));
-  const tocLinks = Array.from(document.querySelectorAll('.toc a'));
-  const percent = document.querySelector('#reading-percent');
-  const fill = document.querySelector('#reading-fill');
-
-  if (policy && policySections.length) {
-    const readingStatus = document.querySelector('.reading-status');
-    if (readingStatus) readingStatus.hidden = false;
-    let scheduled = false;
-
-    function updateReading() {
-      const bounds = policy.getBoundingClientRect();
-      const readingLine = Math.min(window.innerHeight * 0.3, 180);
-      const travel = Math.max(1, bounds.height - window.innerHeight + readingLine);
-      const progress = Math.round(Math.min(1, Math.max(0, (readingLine - bounds.top) / travel)) * 100);
-      if (percent) percent.textContent = `${progress}%`;
-      if (fill) fill.style.transform = `scaleX(${progress / 100})`;
-
-      let current = null;
-      policySections.forEach(section => {
-        if (section.getBoundingClientRect().top <= readingLine + 24) current = section.id;
-      });
-      if (progress === 100) current = policySections[policySections.length - 1].id;
-      tocLinks.forEach(link => {
-        const active = link.getAttribute('href') === `#${current}`;
-        link.classList.toggle('is-active', active);
-        if (active) link.setAttribute('aria-current', 'location');
-        else link.removeAttribute('aria-current');
-      });
-      scheduled = false;
-    }
-
-    function scheduleReading() {
-      if (scheduled) return;
-      scheduled = true;
-      window.requestAnimationFrame(updateReading);
-    }
-
-    window.addEventListener('scroll', scheduleReading, { passive: true });
-    window.addEventListener('resize', scheduleReading);
-    window.addEventListener('load', scheduleReading, { once: true });
-    updateReading();
-  }
 })();
