@@ -85,7 +85,7 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 .iphone-island { position: absolute; top: 4%; left: 50%; width: 30%; height: 4.3%; transform: translateX(-50%); border-radius: 99px; background: #000; }
 .section { padding: 80px 0; border-top: 1px solid var(--line); }
 .section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 30px; margin-bottom: 38px; }
-.section-heading h2, .contact h2 { font-size: 33px; line-height: 1.4; letter-spacing: -.045em; margin: 0; }
+.section-heading h2 { font-size: 33px; line-height: 1.4; letter-spacing: -.045em; margin: 0; }
 .section-heading > p { font-size: 13px; color: #777; margin: 0; }
 .features { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .feature { padding: 28px 0 8px; border-top: 1px solid #d9d9d9; }
@@ -104,39 +104,21 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 .faq summary::after { content: '+'; position: absolute; right: 2px; top: 21px; font-size: 22px; font-weight: 300; color: #777; transition: transform .24s var(--ease), color .24s; }
 .faq details[open]:not(.is-closing) summary::after { transform: rotate(45deg); color: #111; }
 .faq details p { font-size: 14px; color: #777; padding-right: 25px; margin: 0 0 24px; }
-/* Heading, message and actions share one grid so their edges line up. */
-.contact { padding: 45px 48px 40px; border-radius: 16px; background: #f7f7f7; display: grid; grid-template-columns: .8fr 1.2fr; gap: 0 48px; margin-bottom: 76px; }
-.contact .eyebrow { margin-bottom: 15px; }
-.contact h2 { margin: 0; }
-.contact-body { padding-top: 34px; }
-.contact-body p { color: #777; font-size: 14px; margin: 0 0 6px; max-width: 560px; }
-.contact-actions { grid-column: 1 / -1; display: flex; align-items: center; flex-wrap: wrap; gap: 12px 22px; margin-top: 30px; padding-top: 26px; border-top: 1px solid #e6e6e6; }
 .email { overflow-wrap: anywhere; }
-.contact-actions .email { font-size: 13px; color: #555; }
 .source { font-size: 12px; color: #777; max-width: 740px; margin-bottom: 65px; }
 .source strong { display: block; color: #333; font-weight: 550; margin-bottom: 8px; }
 .site-footer { border-top: 1px solid var(--line); padding: 28px 0 35px; }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 11px; color: #888; }
-.footer-links { display: flex; gap: 20px; }
 
 /* Thin document lines and restrained movement, all in black and white. */
-.privacy-hero { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 60px; padding: 78px 0 68px; }
+/* One centered reading column for the whole privacy page. */
+.privacy-hero, .privacy-layout { max-width: 760px; margin: 0 auto; }
+.privacy-hero { padding: 78px 0 56px; }
 .privacy-hero h1 { font-size: clamp(46px, 5.7vw, 70px); font-weight: 520; line-height: 1.2; letter-spacing: -.065em; margin-bottom: 25px; }
 .privacy-hero-copy { animation: arrive .7s var(--ease) both; }
 .privacy-hero .lead { font-size: 16px; }
 .meta { max-width: 430px; margin: 28px 0 0; padding-top: 22px; border-top: 1px solid var(--line); color: #888; font-size: 11px; line-height: 1.9; }
-.privacy-figure { margin: 0; min-width: 0; }
-.document-figure { display: block; width: 100%; max-width: 450px; margin: auto; }
-.figure-guide { stroke: #f0f0f0; stroke-width: .8; }
-.figure-lines { stroke: #d5d5d5; stroke-width: 1; stroke-linecap: round; }
-.figure-wordmark { fill: #111; font: 24px Georgia, serif; }
-.figure-title { fill: #222; font-size: 16px; letter-spacing: -.5px; font-weight: 500; }
-.figure-footnote { fill: #888; font-size: 7px; letter-spacing: .4px; }
-.sheet-back { transform-origin: 240px 210px; animation: sheet-back 10s ease-in-out infinite; }
-.sheet-front { animation: sheet-drift 8s ease-in-out infinite; }
-.figure-orbit { stroke: #ededed; stroke-width: 1; }
-.figure-motion { stroke: #8c8c8c; stroke-width: 1; stroke-linecap: round; stroke-dasharray: 24 185; animation: line-travel 9s linear infinite; }
-.privacy-layout { max-width: 760px; padding-bottom: 85px; }
+.privacy-layout { padding-bottom: 85px; }
 .policy section { padding: 32px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 32px; }
 .policy section:last-child { border-bottom: 0; }
 .policy h2 { font-size: 22px; letter-spacing: -.035em; line-height: 1.5; margin-bottom: 18px; }
@@ -148,9 +130,6 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 .motion-ready [data-reveal] { opacity: 0; transform: translateY(12px); transition: opacity .65s var(--ease) var(--reveal-delay, 0s), transform .65s var(--ease) var(--reveal-delay, 0s); }
 .motion-ready [data-reveal].is-visible { opacity: 1; transform: none; }
 @keyframes arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-@keyframes sheet-drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
-@keyframes sheet-back { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-1.5deg); } }
-@keyframes line-travel { to { stroke-dashoffset: -418; } }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 @keyframes nudge { 0%, 65%, 100% { transform: translateY(0); } 80% { transform: translateY(2px); } }
 
@@ -165,11 +144,10 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 @media (max-width: 1000px) {
   .header-tools { gap: 20px; } nav { gap: 20px; }
   .hero { gap: 35px; } .showcase { height: 490px; } .device-stage { --ipad: 260px; }
-  .privacy-hero { gap: 20px; }
 }
 @media (max-width: 900px) {
   .wrap { width: calc(100% - 48px); } .brand small { display: none; }
-  .support-layout { gap: 35px; } .contact { padding: 35px; column-gap: 32px; }
+  .support-layout { gap: 35px; }
 }
 @media (max-width: 750px) {
   .header-tools { gap: 15px; } nav { gap: 16px; }
@@ -194,15 +172,13 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
   .lead { font-size: 16px; } .eyebrow { margin-bottom: 20px; }
   .showcase { height: 440px; border-radius: 14px; } .device-stage { --ipad: 230px; }
     .section { padding: 48px 0; } .section-heading { display: block; margin-bottom: 27px; }
-  .section-heading h2, .support-intro h2, .contact h2 { font-size: 28px; } .section-heading > p { margin-top: 10px; }
+  .section-heading h2, .support-intro h2 { font-size: 28px; } .section-heading > p { margin-top: 10px; }
   .features { grid-template-columns: 1fr; gap: 26px; } .feature { padding: 25px 0 4px; } .feature h3 { font-size: 22px; }
   .support-layout { grid-template-columns: 1fr; gap: 5px; } .support-intro h2 { margin-bottom: 12px; }
-  .contact { grid-template-columns: 1fr; padding: 27px; margin-bottom: 42px; } .contact-body { padding-top: 14px; } .contact-actions { margin-top: 20px; padding-top: 20px; }
   .source { margin-bottom: 40px; } .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .privacy-hero { padding: 47px 0 42px; grid-template-columns: 1fr; gap: 20px; }
-  .privacy-hero h1 { font-size: clamp(46px, 12vw, 60px); } .privacy-hero .lead { font-size: 16px; }
+  .privacy-hero { padding: 47px 0 34px; }
+  .privacy-hero h1 { font-size: clamp(34px, 9.6vw, 46px); } .privacy-hero .lead { font-size: 16px; }
   .meta { margin-top: 25px; padding-top: 18px; font-size: 10px; }
-  .privacy-figure { width: 100%; max-width: 310px; margin: 0 auto; }
   .policy h2 { font-size: 21px; }
   .policy section { padding: 26px 0; } .policy section.card { padding: 25px; } .policy p { font-size: 14px; }
   .privacy-layout { padding-bottom: 50px; }
@@ -210,7 +186,6 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 @media (max-width: 360px) {
   .wrap { width: calc(100% - 32px); } .download-content h1 { font-size: 40px; }
   .download-description { font-size: 13px; } .header-tools > nav { font-size: 11px; }
-  .footer-links { flex-wrap: wrap; gap: 10px 18px; }
 }
 .motion-paused *, .motion-paused *::before, .motion-paused *::after { animation: none !important; transition: none !important; }
 .motion-paused [data-reveal] { opacity: 1; transform: none; }
