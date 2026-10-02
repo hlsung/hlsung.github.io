@@ -66,23 +66,28 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 .hero-note { font-size: 11px; color: #888; margin: 28px 0 0; }
 .showcase { height: 565px; position: relative; display: flex; justify-content: center; align-items: center; overflow: hidden; background: #f6f6f6; border-radius: 18px; }
 /* Flat front-facing iPad and iPhone with real captures; side buttons stay visible. */
-.device-stage { --ipad: 300px; position: relative; width: 100%; height: calc(var(--ipad) * 1.48); }
-.device-ipad, .device-iphone { position: absolute; background: #1c1c1e; animation: float 7s ease-in-out infinite; }
-.device-ipad { left: calc(50% - var(--ipad) * .68); top: 0; width: var(--ipad); padding: 12px; border-radius: 30px; box-shadow: inset 0 0 0 1.5px #48484a, inset 0 0 0 4px #0d0d0d, 0 40px 70px -34px #00000059, 0 10px 24px #00000012; }
-.device-iphone { left: calc(50% + var(--ipad) * .13); top: calc(var(--ipad) * .4); width: calc(var(--ipad) * .52); padding: 7px; border-radius: 30px; box-shadow: inset 0 0 0 1.2px #48484a, inset 0 0 0 3px #0d0d0d, 0 34px 60px -24px #00000066, 0 8px 20px #00000014; animation-delay: -3.5s; }
-.device-ipad img, .device-iphone img { display: block; width: 100%; height: auto; }
-.device-ipad img { border-radius: 18px; }
-.device-iphone img { border-radius: 24px; }
-.ipad-top, .ipad-volume, .iphone-action, .iphone-volume, .iphone-side { position: absolute; background: #3a3a3c; }
-.ipad-top { top: -3px; right: 18%; width: 14%; height: 3px; border-radius: 2px 2px 0 0; }
-.ipad-volume { right: -3px; top: 11%; width: 3px; height: 8%; border-radius: 0 2px 2px 0; }
-.ipad-volume.lower { top: 21%; }
-.iphone-action, .iphone-volume { left: -2px; width: 2px; border-radius: 2px 0 0 2px; }
-.iphone-action { top: 19%; height: 5%; }
-.iphone-volume { top: 27%; height: 9%; }
-.iphone-volume.lower { top: 38%; }
-.iphone-side { right: -2px; top: 31%; width: 2px; height: 14%; border-radius: 0 2px 2px 0; }
-.iphone-island { position: absolute; top: 4%; left: 50%; width: 30%; height: 4.3%; transform: translateX(-50%); border-radius: 99px; background: #000; }
+.device-stage { --mm: 1.6px; position: relative; width: 100%; height: calc(var(--mm) * 290); }
+/* Drawn to scale from Apple specs: iPad Pro 13" (M4) 215.5 x 281.6 mm, display 2064 x 2752 at 264 ppi
+   (198.6 x 264.8 mm); iPhone 17 71.5 x 149.6 mm, display 1206 x 2622 at 460 ppi (66.6 x 144.8 mm). */
+.device-ipad, .device-iphone { position: absolute; box-sizing: border-box; background: #0b0b0c; animation: float 7s ease-in-out infinite; }
+.device-ipad { left: calc(50% - var(--mm) * 128.5); top: 0; width: calc(var(--mm) * 215.5); height: calc(var(--mm) * 281.6); padding: calc(var(--mm) * 8.4) calc(var(--mm) * 8.45); border-radius: calc(var(--mm) * 11.9); box-shadow: inset 0 0 0 calc(var(--mm) * .7) #3a3a3c, 0 40px 70px -34px #00000059, 0 10px 24px #00000012; }
+.device-iphone { left: calc(50% + var(--mm) * 57); top: calc(var(--mm) * 140); width: calc(var(--mm) * 71.5); height: calc(var(--mm) * 149.6); padding: calc(var(--mm) * 2.41) calc(var(--mm) * 2.45); border-radius: calc(var(--mm) * 11.6); box-shadow: inset 0 0 0 calc(var(--mm) * .6) #3a3a3c, 0 34px 60px -24px #00000066, 0 8px 20px #00000014; animation-delay: -3.5s; }
+.device-ipad img, .device-iphone img { display: block; width: 100%; height: 100%; }
+.device-ipad img { border-radius: calc(var(--mm) * 3.46); }
+.device-iphone img { border-radius: calc(var(--mm) * 9.1); }
+.ipad-top, .ipad-volume, .iphone-action, .iphone-volume, .iphone-side, .iphone-control { position: absolute; background: #3a3a3c; }
+.ipad-top { top: calc(var(--mm) * -.7); right: calc(var(--mm) * 20); width: calc(var(--mm) * 22); height: calc(var(--mm) * .7); border-radius: 2px 2px 0 0; }
+.ipad-volume { right: calc(var(--mm) * -.7); top: calc(var(--mm) * 22); width: calc(var(--mm) * .7); height: calc(var(--mm) * 16); border-radius: 0 2px 2px 0; }
+.ipad-volume.lower { top: calc(var(--mm) * 41); }
+.ipad-camera { position: absolute; right: calc(var(--mm) * 3.6); top: 50%; width: calc(var(--mm) * 1.6); height: calc(var(--mm) * 1.6); margin-top: calc(var(--mm) * -.8); border-radius: 50%; background: #1d2230; }
+.iphone-action, .iphone-volume { left: calc(var(--mm) * -.6); width: calc(var(--mm) * .6); border-radius: 2px 0 0 2px; }
+.iphone-action { top: calc(var(--mm) * 27); height: calc(var(--mm) * 7); }
+.iphone-volume { top: calc(var(--mm) * 40); height: calc(var(--mm) * 12); }
+.iphone-volume.lower { top: calc(var(--mm) * 55); }
+.iphone-side, .iphone-control { right: calc(var(--mm) * -.6); width: calc(var(--mm) * .6); border-radius: 0 2px 2px 0; }
+.iphone-side { top: calc(var(--mm) * 46); height: calc(var(--mm) * 19); }
+.iphone-control { top: calc(var(--mm) * 97); height: calc(var(--mm) * 16); background: #2c2c2e; }
+.iphone-island { position: absolute; top: calc(var(--mm) * 4.2); left: 50%; width: calc(var(--mm) * 20.9); height: calc(var(--mm) * 6.2); transform: translateX(-50%); border-radius: 99px; background: #000; }
 .section { padding: 80px 0; border-top: 1px solid var(--line); }
 .section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 30px; margin-bottom: 38px; }
 .section-heading h2 { font-size: 33px; line-height: 1.4; letter-spacing: -.045em; margin: 0; }
@@ -123,8 +128,6 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 .policy section:last-child { border-bottom: 0; }
 .policy h2 { font-size: 22px; letter-spacing: -.035em; line-height: 1.5; margin-bottom: 18px; }
 .policy p { color: #666; font-size: 15px; line-height: 1.95; margin-bottom: 16px; }
-.policy section.card { border: 0; border-radius: 12px; padding: 30px; background: #f7f7f7; margin: 20px 0; }
-.policy section.card a { color: #111; }
 
 /* Native-feeling ease-out: small displacement, no bounce or forced delay. */
 .motion-ready [data-reveal] { opacity: 0; transform: translateY(12px); transition: opacity .65s var(--ease) var(--reveal-delay, 0s), transform .65s var(--ease) var(--reveal-delay, 0s); }
@@ -143,7 +146,7 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
 }
 @media (max-width: 1000px) {
   .header-tools { gap: 20px; } nav { gap: 20px; }
-  .hero { gap: 35px; } .showcase { height: 490px; } .device-stage { --ipad: 260px; }
+  .hero { gap: 35px; } .showcase { height: 490px; } .device-stage { --mm: 1.4px; }
 }
 @media (max-width: 900px) {
   .wrap { width: calc(100% - 48px); } .brand small { display: none; }
@@ -170,7 +173,7 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
   .hero { grid-template-columns: 1fr; gap: 35px; padding: 48px 0; }
   .hero-copy { padding: 0; } .hero h2 { font-size: clamp(38px, 10vw, 52px); }
   .lead { font-size: 16px; } .eyebrow { margin-bottom: 20px; }
-  .showcase { height: 440px; border-radius: 14px; } .device-stage { --ipad: 230px; }
+  .showcase { height: 440px; border-radius: 14px; } .device-stage { --mm: 1.2px; }
     .section { padding: 48px 0; } .section-heading { display: block; margin-bottom: 27px; }
   .section-heading h2, .support-intro h2 { font-size: 28px; } .section-heading > p { margin-top: 10px; }
   .features { grid-template-columns: 1fr; gap: 26px; } .feature { padding: 25px 0 4px; } .feature h3 { font-size: 22px; }
@@ -180,7 +183,7 @@ nav a[aria-current=page] { box-shadow: 0 1px #111; }
   .privacy-hero h1 { font-size: clamp(34px, 9.6vw, 46px); } .privacy-hero .lead { font-size: 16px; }
   .meta { margin-top: 25px; padding-top: 18px; font-size: 10px; }
   .policy h2 { font-size: 21px; }
-  .policy section { padding: 26px 0; } .policy section.card { padding: 25px; } .policy p { font-size: 14px; }
+  .policy section { padding: 26px 0; } .policy p { font-size: 14px; }
   .privacy-layout { padding-bottom: 50px; }
 }
 @media (max-width: 360px) {
